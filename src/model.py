@@ -54,6 +54,18 @@ def compute_garment_deformation(sess, motion, body):
     v_fit = sess.run("fit_regressor/predict:0", {"fit_regressor/x:0": betas_limited[0:1]})
     v_fit = v_fit.reshape((num_vertices, 3))
 
+
+    from src.io import load_obj,save_obj
+    _, f_garment = load_obj("assets/meshes/tshirt.obj")
+
+
+
+
+    path = os.path.join("./smooth_garment.obj")
+    save_obj(path, v_fit, f_garment)
+
+
+
     # Run recurrent regressor frame by frame
     x = np.concatenate((betas_limited, thetas[:, 3:]), axis=1)
     initial_state = np.zeros((1, RECURRENT_STATE_SIZE))
