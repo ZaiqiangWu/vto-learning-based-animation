@@ -1,7 +1,7 @@
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 
 
-graph = tf.compat.v1.get_default_graph()
+graph = tf.get_default_graph()
 
 sess = tf.Session()
 
