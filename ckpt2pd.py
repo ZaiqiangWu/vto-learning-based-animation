@@ -1,6 +1,6 @@
 import tensorflow.compat.v1 as tf
 
-
+tf.disable_eager_execution()
 graph = tf.get_default_graph()
 
 sess = tf.Session()
