@@ -46,7 +46,7 @@ def compute_garment_deformation(sess, motion, body):
     betas_limited[:, 4:] = 0 
 
     # Compute skinning weights
-    nn = np.loadtxt("assets/meshes/tshirt_closest_body_vertices.txt", delimiter=", ", dtype=int)
+    nn = np.genfromtxt("assets/meshes/tshirt_closest_body_vertices.txt", delimiter=", ", dtype=int)#np.loadtxt("assets/meshes/tshirt_closest_body_vertices.txt", delimiter=", ", dtype=int)
     skinning_weights = body.weights[nn]
     num_vertices = skinning_weights.shape[0]
 
